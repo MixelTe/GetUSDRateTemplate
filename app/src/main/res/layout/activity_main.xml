@@ -27,8 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/labelUsdRubRate"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:text="---"
-        android:layout_marginLeft="16dp" />
+        android:text="---" />
 
     <Button
         android:id="@+id/btnRefresh"

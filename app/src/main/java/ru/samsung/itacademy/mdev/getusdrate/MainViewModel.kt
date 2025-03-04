@@ -21,12 +21,15 @@ class MainViewModel : ViewModel() {
     }
 
     private fun refreshRate() {
-        //Write your code here
+        GlobalScope.launch(Dispatchers.Main) {
+            val rate = rateCheckInteractor.requestRate()
+            usdRate.value = rate
+        }
     }
 
     companion object {
         const val TAG = "MainViewModel"
-        const val API_KEY = "USE_YOUR_PERSONAL_API_KEY"
+        const val API_KEY = "a5949c33ac6646e79988242ad81e2ab5"
         const val USD_RATE_URL = "https://exchange-rates.abstractapi.com/v1/live/?api_key=$API_KEY&base=USD&target=RUB"
     }
 }

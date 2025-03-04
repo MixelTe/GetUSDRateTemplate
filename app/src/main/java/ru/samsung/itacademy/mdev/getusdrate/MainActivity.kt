@@ -20,17 +20,12 @@ class MainActivity : AppCompatActivity() {
         initView()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-
-    }
-
     fun initViewModel() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
-        viewModel.usdRate.observe(this, {
+        viewModel.usdRate.observe(this) {
             textRate.text = "$it RUB"
-        })
+        }
         viewModel.onCreate()
     }
 
@@ -40,7 +35,5 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnRefresh).setOnClickListener {
             viewModel.onRefreshClicked()
         }
-
-
     }
 }
